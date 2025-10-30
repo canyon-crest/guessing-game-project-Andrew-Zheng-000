@@ -79,6 +79,7 @@ function updateScore(){
     let avg = sum/scoreArr.length;
     avgScore.textContent = "Average Score: " + avg.toFixed(2);
 }
+
 function time(){
     let d = new Date();
     // concatenate a string with al the date info...
