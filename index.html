@@ -7,12 +7,16 @@
   <body>
     <p id="date"></p>
 
+    <h2 id="welcome">WELCOME PLAYER</h2>
+    <input type = "text" id="name" placeholder="Please Enter Your Name Here:">
+    <button id="playerName">Enter</button>
+    
     <h3>Level</h3>
     <input type="radio" name="level" id="e" value="3" checked><label for="e">Easy</label>
     <input type="radio" name="level" id="m" value="10"><label for="m">Medium</label>
     <input type="radio" name="level" id="h" value="100"><label for="h">Hard</label>
 
-    <button id="playBtn">Play</button>
+    <button id="playBtn" disabled>Play</button>
 
     <h3 id="msg">Select a Level</h3>
     <input type="text" id="guess">
