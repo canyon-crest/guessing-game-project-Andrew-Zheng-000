@@ -212,6 +212,7 @@ function giveUP(){
 
 
 function createDate(){
+    date = "Date: ";
     let d = new Date();
     let month = d.getMonth();
     let day = d.getDate();
