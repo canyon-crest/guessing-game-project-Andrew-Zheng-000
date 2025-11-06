@@ -1,0 +1,69 @@
+body{
+    background-color: #f0f8ff;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+button {
+    background: #8cc1f9;
+    border-radius: 8px;
+    width:fit-content;
+    margin-top:10px;
+}
+button:hover {
+    background: #5aa0f2;
+    cursor: pointer;
+}
+
+.container {
+  position: relative;
+  margin: 50px auto;
+  width: 60%;
+  padding: 20px;
+  border-radius: 50px;
+  background-color: #97caf7; /* interior */
+  z-index: 0;
+  /* allow children (or overlays) to extend above the container */
+  overflow: visible;
+}
+
+/* Create border with pseudo-element */
+.container::before {
+  content: "";
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px; /* slightly bigger than container */
+  background: linear-gradient(270deg, red, orange, yellow, green, blue, purple, red);
+  background-size: 1400% 1400%; /* make the gradient larger to animate */
+  border-radius: 50px;
+  z-index: -1; /* behind content */
+  animation: borderAnim 5s linear infinite;
+}
+
+/* Animate the background */
+@keyframes borderAnim {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Mask the center so only border is visible */
+.container::after {
+  content: "";
+  position: absolute;
+  top: 4px; left: 4px; right: 4px; bottom: 4px; /* thickness of border */
+  background-color: #97caf7; /* same as container interior */
+  border-radius: 46px; /* slightly smaller to match radius minus border */
+  /* keep the mask behind content so children are visible */
+  z-index: 0;
+}
+
+/* Ensure direct children render above the decorative pseudo-elements */
+.container > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* CSS Styles */
+.perf-badge{margin-left:8px;padding:4px 8px;border-radius:8px;font-weight:700}
+.perf-good{background:#10b981;color:white}
+.perf-ok{background:#f59e0b;color:white}
+.perf-bad{background:#ef4444;color:white}
